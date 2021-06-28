@@ -1,2 +1,2 @@
-# Go.sample
+# go-sample
 Goのお試しリポジトリ
