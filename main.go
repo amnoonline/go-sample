@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
-
-	"rsc.io/quote"
+	"net/http"
 )
 
+func handler(writer http.ResponseWriter, request *http.Request) {
+	fmt.Fprintf(writer, "Hello world, %s!", request.URL.Path[1:])
+}
+
 func main() {
-	fmt.Println(quote.Hello())
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
 }
